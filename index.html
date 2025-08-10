@@ -1,35 +1,32 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hi-Tech | Jasa Service Komputer Profesional</title>
+    <title>Hi-Tech29 - Jasa Service Komputer Profesional</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2563eb;
-            --primary-light: #3b82f6;
+            --primary-color: #2563eb;
             --primary-dark: #1d4ed8;
-            --secondary: #1e40af;
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --accent: #f59e0b;
-            --text: #334155;
+            --secondary-color: #3b82f6;
+            --light-color: #eff6ff;
+            --dark-color: #1e3a8a;
+            --text-color: #1f2937;
+            --white: #ffffff;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: var(--light);
-            color: var(--text);
+            background-color: #f9fafb;
+            color: var(--text-color);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         .container {
@@ -38,19 +35,103 @@
             padding: 0 20px;
         }
 
-        /* Header */
+        /* Header Styles */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 20px 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://source.unsplash.com/random/1600x900/?technology,computer') no-repeat center center/cover;
+            color: var(--white);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
         }
 
-        .header-content {
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, #f9fafb);
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(37, 99, 235, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 15px 0;
+            background-color: rgba(37, 99, 235, 0.95);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -59,173 +140,66 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
-            display: flex;
-            align-items: center;
+            color: var(--white);
+            text-decoration: none;
         }
 
-        .logo i {
-            margin-right: 10px;
-            color: var(--accent);
-        }
-
-        nav ul {
+        .nav-links {
             display: flex;
             list-style: none;
+            gap: 30px;
         }
 
-        nav ul li {
-            margin-left: 30px;
-        }
-
-        nav ul li a {
-            color: white;
+        .nav-links a {
+            color: var(--white);
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
             position: relative;
-            font-size: 1.1rem;
         }
 
-        nav ul li a:hover {
-            color: var(--accent);
+        .nav-links a:hover {
+            color: #dbeafe;
         }
 
-        nav ul li a::after {
+        .nav-links a::after {
             content: '';
             position: absolute;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
             bottom: -5px;
             left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--white);
             transition: width 0.3s ease;
         }
 
-        nav ul li a:hover::after {
+        .nav-links a:hover::after {
             width: 100%;
         }
 
-        .mobile-menu {
+        .mobile-menu-btn {
             display: none;
+            background: none;
+            border: none;
+            color: var(--white);
             font-size: 1.5rem;
             cursor: pointer;
-            color: white;
         }
 
-        /* Hero Section */
-        .hero {
-            height: 90vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(rgba(37, 99, 235, 0.8), rgba(30, 64, 175, 0.9)), url('https://images.unsplash.com/photo-1627855437693-dcc7b0c4ba7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
-            color: white;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--accent);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 0 10px;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.6);
-            background-color: #e67e22;
-        }
-
-        .social-button {
-            display: inline-block;
-            background-color: transparent;
-            color: white;
-            padding: 10px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: 2px solid white;
-            font-size: 1rem;
-            margin: 0 5px;
-        }
-
-        .social-button:hover {
-            background-color: white;
-            color: var(--primary);
-        }
-
-        /* Promo Banner */
-        .promo-banner {
-            background-color: var(--accent);
-            color: white;
-            padding: 15px 0;
-            text-align: center;
-            font-weight: 600;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .promo-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            animation: shine 3s infinite;
-        }
-
-        @keyframes shine {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
-        /* About Section */
-        .about {
+        /* Services Section */
+        section {
             padding: 80px 0;
-            background-color: white;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
 
         .section-title h2 {
             font-size: 2.5rem;
-            color: var(--primary);
+            color: var(--dark-color);
+            margin-bottom: 15px;
             position: relative;
             display: inline-block;
         }
@@ -233,359 +207,394 @@
         .section-title h2::after {
             content: '';
             position: absolute;
-            width: 50%;
-            height: 4px;
-            background: var(--accent);
             bottom: -10px;
-            left: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
             border-radius: 2px;
         }
 
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-
-        .about-text {
-            flex: 1;
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-
-        .about-image {
-            flex: 1;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .about-image:hover img {
-            transform: scale(1.05);
-        }
-
-        /* Services Section */
-        .services {
-            padding: 80px 0;
-            background-color: var(--light);
+        .section-title p {
+            color: #6b7280;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 40px;
         }
 
         .service-card {
-            background: white;
+            background-color: var(--white);
             border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
-            border-top: 4px solid var(--primary);
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-            border-top-color: var(--accent);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
-        .service-icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--secondary);
-        }
-
-        /* Promo Section */
-        .promo {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
-            color: white;
-            text-align: center;
-        }
-
-        .promo-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .promo-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            padding: 30px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .promo-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .promo-card i {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--accent);
-        }
-
-        .promo-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        /* Products Section */
-        .products {
-            padding: 80px 0;
-            background-color: white;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            border: 1px solid #eee;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .product-image {
+        .service-img {
             height: 200px;
             overflow: hidden;
         }
 
-        .product-image img {
+        .service-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
 
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
+        .service-card:hover .service-img img {
+            transform: scale(1.1);
         }
 
-        .product-info {
-            padding: 20px;
+        .service-content {
+            padding: 25px;
         }
 
-        .product-info h3 {
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .service-content p {
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+
+        .promo-badge {
+            display: inline-block;
+            background-color: #10b981;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Promo Section */
+        .promo-section {
+            background-color: var(--light-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://source.unsplash.com/random/1600x900/?abstract,blue') no-repeat center center/cover;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .promo-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .promo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .promo-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .promo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .promo-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .promo-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .promo-card p {
+            color: #6b7280;
+        }
+
+        /* Products Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+
+        .product-content {
+            padding: 25px;
+        }
+
+        .product-content h3 {
             font-size: 1.3rem;
             margin-bottom: 10px;
-            color: var(--primary);
+            color: var(--dark-color);
         }
 
         .product-specs {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
-        .product-specs li {
-            margin-bottom: 5px;
+        .product-specs p {
+            color: #6b7280;
             font-size: 0.9rem;
+            margin-bottom: 5px;
             display: flex;
             align-items: center;
         }
 
         .product-specs i {
-            color: var(--primary);
             margin-right: 8px;
+            color: var(--primary-color);
             font-size: 0.8rem;
         }
 
-        .product-button {
+        .product-btn {
             display: block;
             text-align: center;
-            background-color: var(--primary);
-            color: white;
-            padding: 10px 15px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px;
             border-radius: 5px;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: all 0.3s ease;
         }
 
-        .product-button:hover {
+        .product-btn:hover {
             background-color: var(--primary-dark);
         }
 
-        /* Contact Section */
-        .contact {
-            padding: 80px 0;
-            background-color: white;
+        /* Testimonials Section */
+        .testimonials-section {
+            background-color: var(--light-color);
         }
 
-        .contact-content {
+        .testimonials-container {
+            position: relative;
+        }
+
+        .testimonials-slider {
             display: flex;
-            gap: 50px;
-            margin-top: 40px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            gap: 30px;
+            padding: 20px 0;
+            margin: 0 -20px;
+            padding: 20px;
         }
 
-        .contact-info {
-            flex: 1;
+        .testimonials-slider::-webkit-scrollbar {
+            display: none;
         }
 
-        .contact-card {
-            background: var(--light);
-            padding: 30px;
+        .testimonial-card {
+            flex: 0 0 calc(33.333% - 20px);
+            scroll-snap-align: start;
+            background-color: var(--white);
             border-radius: 10px;
-            margin-bottom: 30px;
+            padding: 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid var(--accent);
+            min-width: 300px;
         }
 
-        .contact-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-
-        .contact-method {
+        .testimonial-header {
             display: flex;
             align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+
+        .testimonial-info p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-rating {
+            color: #f59e0b;
             margin-bottom: 15px;
         }
 
-        .contact-method i {
-            font-size: 1.5rem;
-            color: var(--accent);
-            margin-right: 15px;
-            width: 30px;
-            text-align: center;
+        .testimonial-text {
+            color: #6b7280;
+            font-style: italic;
         }
 
-        .contact-method a {
-            color: var(--dark);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-weight: 500;
+        /* Location Section */
+        .location-section {
+            padding-bottom: 0;
         }
 
-        .contact-method a:hover {
-            color: var(--accent);
+        .location-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
         }
 
-        .map-container {
-            width: 100%;
-            height: 300px;
+        .location-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .location-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .location-info p {
+            margin-bottom: 30px;
+            color: #6b7280;
+        }
+
+        .location-map {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
             border-radius: 10px;
             overflow: hidden;
-            margin-top: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .map-container iframe {
+        .location-map iframe {
             width: 100%;
             height: 100%;
             border: none;
         }
 
-        .contact-form {
-            flex: 1;
-            background: var(--light);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid var(--primary);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: var(--primary);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
         /* Footer */
         footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 50px 0 20px;
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 60px 0 20px;
         }
 
-        .footer-content {
+        .footer-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            gap: 40px;
             margin-bottom: 40px;
         }
 
-        .footer-column h3 {
+        .footer-col h3 {
             font-size: 1.3rem;
             margin-bottom: 20px;
             position: relative;
             padding-bottom: 10px;
         }
 
-        .footer-column h3::after {
+        .footer-col h3::after {
             content: '';
             position: absolute;
-            width: 50px;
-            height: 3px;
-            background: var(--accent);
             bottom: 0;
             left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
         }
 
-        .footer-column p {
+        .footer-col p {
             margin-bottom: 15px;
+            color: #d1d5db;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 5px;
         }
 
         .social-links {
@@ -595,19 +604,19 @@
         }
 
         .social-links a {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
             width: 40px;
             height: 40px;
-            background: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            color: white;
+            color: var(--white);
             transition: all 0.3s ease;
         }
 
         .social-links a:hover {
-            background: var(--accent);
+            background-color: var(--primary-color);
             transform: translateY(-3px);
         }
 
@@ -615,102 +624,17 @@
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* Floating WhatsApp Button */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25D366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            z-index: 99;
-            transition: all 0.3s ease;
-            animation: pulse 2s infinite;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .contact-content {
-                flex-direction: column;
-            }
-        }
-
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: var(--primary-dark);
-                flex-direction: column;
-                padding: 20px 0;
-                align-items: center;
-            }
-            
-            nav ul.show {
-                display: flex;
-            }
-            
-            nav ul li {
-                margin: 10px 0;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .cta-button, .hero .social-button {
-                display: block;
-                margin: 10px auto;
-                width: 80%;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .logo {
-                font-size: 1.5rem;
-            }
+            color: #d1d5db;
+            font-size: 0.9rem;
         }
 
         /* Animations */
         @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(20px);
@@ -721,338 +645,441 @@
             }
         }
 
-        .fade-in {
-            animation: fadeIn 1s ease forwards;
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .delay-1 {
-            animation-delay: 0.2s;
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            header h1 {
+                font-size: 2.8rem;
+            }
+            
+            header p {
+                font-size: 1.2rem;
+            }
+            
+            .testimonial-card {
+                flex: 0 0 calc(50% - 15px);
+            }
         }
 
-        .delay-2 {
-            animation-delay: 0.4s;
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--primary-dark);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 30px;
+                transition: all 0.5s ease;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            header p {
+                font-size: 1.1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .testimonial-card {
+                flex: 0 0 100%;
+            }
         }
 
-        .delay-3 {
-            animation-delay: 0.6s;
+        @media (max-width: 576px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .location-container {
+                flex-direction: column-reverse;
+            }
+            
+            .location-map {
+                height: 300px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <i class="fas fa-laptop-medical"></i>
-                <span>Hi-Tech Service</span>
-            </div>
-            <nav>
-                <ul id="navMenu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#promo">Promo</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="mobile-menu" id="mobileMenu">
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">Hi-Tech29</a>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#services">Layanan</a></li>
+                <li><a href="#promo">Promo</a></li>
+                <li><a href="#products">Produk</a></li>
+                <li><a href="#testimonials">Testimoni</a></li>
+                <li><a href="#location">Lokasi</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
-            </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header id="home">
+        <h1>Jasa Service Komputer Profesional</h1>
+        <p>Solusi cepat dan tepat untuk semua masalah komputer dan laptop Anda dengan teknisi berpengalaman.</p>
+        <div class="cta-buttons">
+            <a href="https://wa.me/6281328717886" class="btn btn-primary">
+                <i class="fab fa-whatsapp"></i> Hubungi via WhatsApp
+            </a>
+            <a href="https://www.instagram.com/hi_tech29.store/" class="btn btn-secondary">
+                <i class="fab fa-instagram"></i> Kunjungi Instagram
+            </a>
         </div>
     </header>
 
-    <!-- Promo Banner -->
-    <div class="promo-banner">
-        <p>FREE PICKUP & DELIVERY • FREE CONSULTATION • FREE DAMAGE CHECK</p>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container hero-content fade-in">
-            <h1>Professional Computer Repair Service</h1>
-            <p>Fast, reliable, and affordable computer repair services with professional technicians and quality parts.</p>
-            <div style="margin-top: 30px;">
-                <a href="https://wa.me/6281328717886" class="cta-button" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                <a href="https://www.instagram.com/hi_tech29.store" class="social-button" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="section-title fade-in">
-                <h2>Tentang Kami</h2>
-            </div>
-            <div class="about-content">
-                <div class="about-text fade-in delay-1">
-                    <h3>Mengapa Memilih Hi-Tech?</h3>
-                    <p>Hi-Tech adalah penyedia jasa service komputer profesional dengan pengalaman dalam menangani berbagai masalah komputer dan laptop. Kami berkomitmen untuk memberikan solusi terbaik dengan harga terjangkau.</p>
-                    <p>Tim teknisi kami yang berpengalaman siap membantu memperbaiki berbagai kerusakan, mulai dari hardware hingga software, dengan garansi resmi untuk setiap perbaikan.</p>
-                    <ul style="list-style-type: none; margin-top: 20px;">
-                        <li><i class="fas fa-check-circle" style="color: var(--accent); margin-right: 10px;"></i> Teknisi berpengalaman & bersertifikat</li>
-                        <li><i class="fas fa-check-circle" style="color: var(--accent); margin-right: 10px;"></i> Garansi resmi untuk setiap perbaikan</li>
-                        <li><i class="fas fa-check-circle" style="color: var(--accent); margin-right: 10px;"></i> Harga transparan & kompetitif</li>
-                    </ul>
-                </div>
-                <div class="about-image fade-in delay-2">
-                    <img src="https://images.unsplash.com/photo-1551033406-611cf9a28f67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Teknisi Hi-Tech">
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-title fade-in">
-                <h2>Layanan Kami</h2>
+    <section id="services" class="container">
+        <div class="section-title">
+            <h2>Layanan Kami</h2>
+            <p>Kami menyediakan berbagai layanan perbaikan dan perawatan komputer dengan kualitas terbaik.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="https://source.unsplash.com/random/600x400/?computer,repair" alt="Service 1">
+                </div>
+                <div class="service-content">
+                    <h3>Service Hardware</h3>
+                    <p>Perbaikan komponen fisik komputer/laptop termasuk motherboard, harddisk, RAM, dan komponen lainnya.</p>
+                </div>
             </div>
-            <div class="services-grid">
-                <div class="service-card fade-in delay-1">
-                    <div class="service-icon">
-                        <i class="fas fa-desktop"></i>
-                    </div>
-                    <h3>Perbaikan Komputer</h3>
-                    <p>Layanan perbaikan komprehensif untuk desktop dan laptop termasuk motherboard, RAM, HDD/SSD, dan masalah daya.</p>
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="https://source.unsplash.com/random/600x400/?software,install" alt="Service 2">
                 </div>
-                <div class="service-card fade-in delay-2">
-                    <div class="service-icon">
-                        <i class="fas fa-virus"></i>
-                    </div>
-                    <h3>Penghapusan Virus</h3>
-                    <p>Penghapusan virus dan malware secara menyeluruh dengan perlindungan data dan optimasi sistem.</p>
+                <div class="service-content">
+                    <h3>Service Software</h3>
+                    <p>Instalasi sistem operasi, driver, aplikasi, perbaikan error software, dan optimasi sistem.</p>
                 </div>
-                <div class="service-card fade-in delay-3">
-                    <div class="service-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3>Pemulihan Data</h3>
-                    <p>Layanan pemulihan data profesional untuk file yang terhapus atau rusak dari perangkat penyimpanan apa pun.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="https://source.unsplash.com/random/600x400/?virus,protection" alt="Service 3">
                 </div>
-                <div class="service-card fade-in delay-1">
-                    <div class="service-icon">
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
-                    <h3>Upgrade Performa</h3>
-                    <p>Tingkatkan performa komputer Anda dengan instalasi SSD, upgrade RAM, dan optimasi sistem.</p>
+                <div class="service-content">
+                    <h3>Virus Removal</h3>
+                    <p>Pembersihan virus, malware, spyware, dan perlindungan sistem dari serangan digital.</p>
                 </div>
-                <div class="service-card fade-in delay-2">
-                    <div class="service-icon">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
-                    <h3>Jaringan</h3>
-                    <p>Setup jaringan, troubleshooting, dan maintenance untuk rumah dan bisnis kecil.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="https://source.unsplash.com/random/600x400/?data,recovery" alt="Service 4">
                 </div>
-                <div class="service-card fade-in delay-3">
-                    <div class="service-icon">
-                        <i class="fas fa-laptop"></i>
-                    </div>
-                    <h3>Ganti Layar Laptop</h3>
-                    <p>Penggantian layar LCD berkualitas tinggi dengan garansi untuk semua merek laptop.</p>
+                <div class="service-content">
+                    <h3>Data Recovery</h3>
+                    <p>Pemulihan data yang hilang atau terhapus dari harddisk, flashdisk, dan media penyimpanan lainnya.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="https://source.unsplash.com/random/600x400/?upgrade,computer" alt="Service 5">
+                </div>
+                <div class="service-content">
+                    <h3>Upgrade Komputer</h3>
+                    <p>Peningkatan performa komputer dengan upgrade RAM, SSD, VGA, dan komponen pendukung lainnya.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="https://source.unsplash.com/random/600x400/?network,wifi" alt="Service 6">
+                </div>
+                <div class="service-content">
+                    <h3>Jaringan & Internet</h3>
+                    <p>Pemasangan dan perbaikan jaringan LAN/WiFi, sharing internet, dan troubleshooting koneksi.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Promo Section -->
-    <section class="promo" id="promo">
-        <div class="container">
-            <div class="section-title fade-in">
-                <h2 style="color: white;">Promo Spesial Kami</h2>
+    <section id="promo" class="promo-section">
+        <div class="container promo-container">
+            <div class="section-title">
+                <h2>Promo Spesial</h2>
+                <p>Nikmati berbagai penawaran menarik dari kami untuk perawatan komputer Anda.</p>
             </div>
-            <div class="promo-cards">
-                <div class="promo-card fade-in delay-1">
-                    <i class="fas fa-car"></i>
+            <div class="promo-grid">
+                <div class="promo-card">
+                    <div class="promo-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
                     <h3>Gratis Antar Jemput</h3>
-                    <p>Kami akan mengantar dan menjemput perangkat Anda secara gratis dalam area layanan kami.</p>
+                    <p>Kami menyediakan layanan antar jemput barang gratis untuk wilayah Solo dan sekitarnya.</p>
                 </div>
-                <div class="promo-card fade-in delay-2">
-                    <i class="fas fa-search"></i>
+                <div class="promo-card">
+                    <div class="promo-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
                     <h3>Gratis Cek Kerusakan</h3>
-                    <p>Layanan diagnostik komprehensif untuk mengidentifikasi semua masalah tanpa biaya.</p>
+                    <p>Diagnosa kerusakan komputer/laptop Anda secara gratis tanpa biaya apapun.</p>
                 </div>
-                <div class="promo-card fade-in delay-3">
-                    <i class="fas fa-comments"></i>
+                <div class="promo-card">
+                    <div class="promo-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
                     <h3>Gratis Konsultasi</h3>
-                    <p>Dapatkan saran teknis gratis dari ahli kami sebelum melakukan perbaikan.</p>
+                    <p>Konsultasikan masalah perangkat Anda dengan teknisi kami secara gratis.</p>
+                </div>
+                <div class="promo-card">
+                    <div class="promo-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Garansi Service</h3>
+                    <p>Semua layanan service kami bergaransi 1 bulan untuk kerusakan yang sama.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Products Section -->
-    <section class="products" id="products">
-        <div class="container">
-            <div class="section-title fade-in">
-                <h2>Produk Kami</h2>
-                <p>Laptop berkualitas dengan spesifikasi terbaik</p>
+    <section id="products" class="container">
+        <div class="section-title">
+            <h2>Produk Kami</h2>
+            <p>Kami juga menyediakan berbagai laptop berkualitas untuk kebutuhan Anda.</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://source.unsplash.com/random/600x400/?hp,laptop" alt="HP Probook 640 G5">
+                </div>
+                <div class="product-content">
+                    <h3>HP Probook 640 G5</h3>
+                    <div class="product-specs">
+                        <p><i class="fas fa-microchip"></i> Intel Core i5 Gen 8</p>
+                        <p><i class="fas fa-memory"></i> RAM 8GB + SSD 256GB</p>
+                        <p><i class="fas fa-tv"></i> Layar 14 inch</p>
+                    </div>
+                    <a href="https://wa.me/6281328717886?text=Saya%20tertarik%20dengan%20produk%20HP%20Probook%20640%20G5" class="product-btn">Hubungi Kami</a>
+                </div>
             </div>
-            <div class="products-grid">
-                <!-- HP Probook 640 G5 -->
-                <div class="product-card fade-in delay-1">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="HP Probook 640 G5">
-                    </div>
-                    <div class="product-info">
-                        <h3>HP Probook 640 G5</h3>
-                        <ul class="product-specs">
-                            <li><i class="fas fa-microchip"></i> Intel Core i5 Gen 8</li>
-                            <li><i class="fas fa-memory"></i> 8GB DDR4 RAM</li>
-                            <li><i class="fas fa-hdd"></i> 256GB SSD Storage</li>
-                            <li><i class="fas fa-tv"></i> 14" LED Display</li>
-                        </ul>
-                        <a href="https://wa.me/6281328717886?text=Saya%20tertarik%20dengan%20HP%20Probook%20640%20G5" class="product-button" target="_blank">Hubungi Kami</a>
-                    </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://source.unsplash.com/random/600x400/?acer,laptop" alt="ACER TRAVELMATE P214">
                 </div>
-                
-                <!-- ACER TRAVELMATE P214 -->
-                <div class="product-card fade-in delay-2">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="ACER TRAVELMATE P214">
+                <div class="product-content">
+                    <h3>ACER TRAVELMATE P214</h3>
+                    <div class="product-specs">
+                        <p><i class="fas fa-microchip"></i> Intel Core i5 Gen 10</p>
+                        <p><i class="fas fa-memory"></i> RAM 8GB + SSD 128GB + HDD 1TB</p>
+                        <p><i class="fas fa-tv"></i> Layar 14 inch</p>
                     </div>
-                    <div class="product-info">
-                        <h3>ACER TRAVELMATE P214</h3>
-                        <ul class="product-specs">
-                            <li><i class="fas fa-microchip"></i> Intel Core i5 Gen 10</li>
-                            <li><i class="fas fa-memory"></i> 8GB DDR4 RAM</li>
-                            <li><i class="fas fa-hdd"></i> 128GB SSD + 1TB HDD</li>
-                            <li><i class="fas fa-tv"></i> 14" LED Display</li>
-                        </ul>
-                        <a href="https://wa.me/6281328717886?text=Saya%20tertarik%20dengan%20ACER%20TRAVELMATE%20P214" class="product-button" target="_blank">Hubungi Kami</a>
-                    </div>
+                    <a href="https://wa.me/6281328717886?text=Saya%20tertarik%20dengan%20produk%20ACER%20TRAVELMATE%20P214" class="product-btn">Hubungi Kami</a>
                 </div>
-                
-                <!-- Lenovo Thinkpad T470s -->
-                <div class="product-card fade-in delay-3">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Lenovo Thinkpad T470s">
-                    </div>
-                    <div class="product-info">
-                        <h3>Lenovo Thinkpad T470s</h3>
-                        <ul class="product-specs">
-                            <li><i class="fas fa-microchip"></i> Intel Core i7 Gen 7</li>
-                            <li><i class="fas fa-memory"></i> 8GB DDR4 RAM</li>
-                            <li><i class="fas fa-hdd"></i> 256GB SSD Storage</li>
-                            <li><i class="fas fa-tv"></i> 14" LED Display</li>
-                        </ul>
-                        <a href="https://wa.me/6281328717886?text=Saya%20tertarik%20dengan%20Lenovo%20Thinkpad%20T470s" class="product-button" target="_blank">Hubungi Kami</a>
-                    </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://source.unsplash.com/random/600x400/?lenovo,laptop" alt="Lenovo Thinkpad T470s">
                 </div>
-                
-                <!-- Lenovo Yoga L13 -->
-                <div class="product-card fade-in delay-1">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Lenovo Yoga L13">
+                <div class="product-content">
+                    <h3>Lenovo Thinkpad T470s</h3>
+                    <div class="product-specs">
+                        <p><i class="fas fa-microchip"></i> Intel Core i7 Gen 7</p>
+                        <p><i class="fas fa-memory"></i> RAM 8GB + SSD 256GB</p>
+                        <p><i class="fas fa-tv"></i> Layar 14 inch</p>
                     </div>
-                    <div class="product-info">
-                        <h3>Lenovo Yoga L13</h3>
-                        <ul class="product-specs">
-                            <li><i class="fas fa-microchip"></i> Intel Core i5 Gen 10</li>
-                            <li><i class="fas fa-memory"></i> 16GB DDR4 RAM</li>
-                            <li><i class="fas fa-hdd"></i> 256GB NVMe SSD</li>
-                            <li><i class="fas fa-tv"></i> 13.3" Touchscreen 360°</li>
-                            <li><i class="fas fa-pen"></i> Includes Stylus Pen</li>
-                        </ul>
-                        <a href="https://wa.me/6281328717886?text=Saya%20tertarik%20dengan%20Lenovo%20Yoga%20L13" class="product-button" target="_blank">Hubungi Kami</a>
-                    </div>
+                    <a href="https://wa.me/6281328717886?text=Saya%20tertarik%20dengan%20produk%20Lenovo%20Thinkpad%20T470s" class="product-btn">Hubungi Kami</a>
                 </div>
-                
-                <!-- Lenovo Thinkpad T495 -->
-                <div class="product-card fade-in delay-2">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Lenovo Thinkpad T495">
-                    </div>
-                    <div class="product-info">
-                        <h3>Lenovo Thinkpad T495</h3>
-                        <ul class="product-specs">
-                            <li><i class="fas fa-microchip"></i> Ryzen 5 Pro 3500</li>
-                            <li><i class="fas fa-memory"></i> 8GB DDR4 RAM</li>
-                            <li><i class="fas fa-hdd"></i> 256GB SSD Storage</li>
-                            <li><i class="fas fa-tv"></i> 14" LED Display</li>
-                            <li><i class="fas fa-keyboard"></i> Keyboard Backlight</li>
-                        </ul>
-                        <a href="https://wa.me/6281328717886?text=Saya%20tertarik%20dengan%20Lenovo%20Thinkpad%20T495" class="product-button" target="_blank">Hubungi Kami</a>
-                    </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://source.unsplash.com/random/600x400/?lenovo,yoga" alt="Lenovo Yoga L13">
                 </div>
-                
-                <!-- Lenovo L390 yoga -->
-                <div class="product-card fade-in delay-3">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Lenovo L390 yoga">
+                <div class="product-content">
+                    <h3>Lenovo Yoga L13</h3>
+                    <div class="product-specs">
+                        <p><i class="fas fa-microchip"></i> Intel Core i5 Gen 10</p>
+                        <p><i class="fas fa-memory"></i> RAM 16GB + SSD 256GB</p>
+                        <p><i class="fas fa-tv"></i> Layar 13.3" Touchscreen Flip 360° + Stylus Pen</p>
                     </div>
-                    <div class="product-info">
-                        <h3>Lenovo L390 Yoga</h3>
-                        <ul class="product-specs">
-                            <li><i class="fas fa-microchip"></i> Intel Core i5 Gen 8</li>
-                            <li><i class="fas fa-memory"></i> 8GB DDR4 RAM</li>
-                            <li><i class="fas fa-hdd"></i> 256GB SSD Storage</li>
-                            <li><i class="fas fa-tv"></i> 13.3" Touchscreen</li>
-                            <li><i class="fas fa-pen"></i> Includes Stylus Pen</li>
-                        </ul>
-                        <a href="https://wa.me/6281328717886?text=Saya%20tertarik%20dengan%20Lenovo%20L390%20Yoga" class="product-button" target="_blank">Hubungi Kami</a>
+                    <a href="https://wa.me/6281328717886?text=Saya%20tertarik%20dengan%20produk%20Lenovo%20Yoga%20L13" class="product-btn">Hubungi Kami</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://source.unsplash.com/random/600x400/?thinkpad,laptop" alt="Lenovo Thinkpad T495">
+                </div>
+                <div class="product-content">
+                    <h3>Lenovo Thinkpad T495</h3>
+                    <div class="product-specs">
+                        <p><i class="fas fa-microchip"></i> Ryzen 5 Pro 3500</p>
+                        <p><i class="fas fa-memory"></i> RAM 8GB + SSD 256GB</p>
+                        <p><i class="fas fa-tv"></i> VGA Vega8 2GB + Keyboard Backlight</p>
+                        <p><i class="fas fa-tv"></i> Layar 14 inch</p>
                     </div>
+                    <a href="https://wa.me/6281328717886?text=Saya%20tertarik%20dengan%20produk%20Lenovo%20Thinkpad%20T495" class="product-btn">Hubungi Kami</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://source.unsplash.com/random/600x400/?lenovo,yoga2" alt="Lenovo L390 yoga">
+                </div>
+                <div class="product-content">
+                    <h3>Lenovo L390 Yoga</h3>
+                    <div class="product-specs">
+                        <p><i class="fas fa-microchip"></i> Intel Core i5 Gen 8</p>
+                        <p><i class="fas fa-memory"></i> RAM 8GB + SSD 256GB</p>
+                        <p><i class="fas fa-tv"></i> Layar 13.3" Touchscreen + Stylus Pen</p>
+                    </div>
+                    <a href="https://wa.me/6281328717886?text=Saya%20tertarik%20dengan%20produk%20Lenovo%20L390%20Yoga" class="product-btn">Hubungi Kami</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
         <div class="container">
-            <div class="section-title fade-in">
-                <h2>Hubungi Kami</h2>
+            <div class="section-title">
+                <h2>Apa Kata Pelanggan</h2>
+                <p>Testimoni dari pelanggan yang telah menggunakan layanan kami.</p>
             </div>
-            <div class="contact-content">
-                <div class="contact-info fade-in delay-1">
-                    <div class="contact-card">
-                        <h3>Informasi Kontak</h3>
-                        <div class="contact-method">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <a href="https://maps.google.com?q=Jl.+Majapahit+Stand+PasarKliwon+no+18" target="_blank">Jl. Majapahit Stand PasarKliwon no 18</a>
-                            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer 1">
                         </div>
-                        <div class="contact-method">
-                            <i class="fab fa-whatsapp"></i>
-                            <div>
-                                <a href="https://wa.me/6281328717886" target="_blank">0813-2871-7886</a>
-                            </div>
-                        </div>
-                        <div class="contact-method">
-                            <i class="fab fa-instagram"></i>
-                            <div>
-                                <a href="https://www.instagram.com/hi_tech29.store" target="_blank">@hi_tech29.store</a>
-                            </div>
+                        <div class="testimonial-info">
+                            <h4>Budi Santoso</h4>
+                            <p>Pemilik CV. Maju Jaya</p>
                         </div>
                     </div>
-                    <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.798511757686!2d110.83273931477294!3d-6.919486169448642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70f5b1a9f0d0a5%3A0x9f0d0a5a9f0d0a5!2sJl.%20Majapahit%20Stand%20PasarKliwon%20no%2018!5e0!3m2!1sen!2sid!4v1620000000000!5m2!1sen!2sid" allowfullscreen="" loading="lazy"></iframe>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                     </div>
+                    <p class="testimonial-text">"Laptop saya yang rusak berat bisa diperbaiki dengan cepat dan hasilnya memuaskan. Teknisinya sangat profesional dan harga terjangkau."</p>
                 </div>
-                <div class="contact-form fade-in delay-2">
-                    <h3>Kirim Pesan</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Nama Lengkap</label>
-                            <input type="text" id="name" name="name" required>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer 2">
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                        <div class="testimonial-info">
+                            <h4>Dewi Anggraeni</h4>
+                            <p>Mahasiswa</p>
                         </div>
-                        <div class="form-group">
-                            <label for="phone">Nomor Telepon</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Pesan</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="cta-button">Kirim Pesan</button>
-                    </form>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Service cepat dan gratis antar jemput. Data penting saya yang hilang berhasil dikembalikan. Terima kasih Hi-Tech29!"</p>
                 </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Customer 3">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Agus Setiawan</h4>
+                            <p>Freelancer</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="testimonial-text">"Beli laptop second di sini kualitasnya seperti baru. Garansi diberikan dan pelayanannya ramah. Recommended banget!"</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer 4">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Rina Wijaya</h4>
+                            <p>Guru</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Komputer sekolah yang rusak bisa diperbaiki dengan biaya murah. Sekarang berjalan lebih cepat setelah diupgrade SSD."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="location-section container">
+        <div class="section-title">
+            <h2>Lokasi Kami</h2>
+            <p>Kunjungi workshop kami untuk konsultasi langsung dengan teknisi.</p>
+        </div>
+        <div class="location-container">
+            <div class="location-info">
+                <h3>Hi-Tech29 Store</h3>
+                <p>Kami berlokasi di pusat kota Solo, mudah dijangkau dari mana saja. Jam operasional kami setiap hari dari pukul 09.00 - 17.00 WIB.</p>
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Majapahit Stand Pasar Kliwon No. 18, Solo, Jawa Tengah</p>
+                <p><i class="fas fa-phone-alt"></i> 0813-2871-7886</p>
+                <p><i class="fas fa-envelope"></i> hi-tech29.store@example.com</p>
+                <div class="cta-buttons" style="margin-top: 30px;">
+                    <a href="https://wa.me/6281328717886" class="btn btn-primary" style="margin-right: 15px;">
+                        <i class="fab fa-whatsapp"></i> Hubungi Kami
+                    </a>
+                    <a href="https://www.instagram.com/hi_tech29.store/" class="btn btn-secondary">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                </div>
+            </div>
+            <div class="location-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.070759427062!2d110.8327743152586!3d-7.575846994519204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMzQnMzMuMSJTIDExMMKwNTAnMDIuMCJF!5e0!3m2!1sen!2sid!4v1621234567890!5m2!1sen!2sid" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
@@ -1060,117 +1087,159 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Tentang Hi-Tech</h3>
-                    <p>Layanan service komputer profesional dengan teknisi bersertifikat dan suku cadang berkualitas. Kami memberikan solusi terpercaya untuk semua masalah komputer Anda.</p>
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Hi-Tech29</h3>
+                    <p>Menyediakan jasa service komputer dan laptop profesional dengan teknisi berpengalaman dan harga terjangkau.</p>
                     <div class="social-links">
-                        <a href="https://wa.me/6281328717886" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                        <a href="https://www.instagram.com/hi_tech29.store" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/hi_tech29.store/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/6281328717886"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
-                <div class="footer-column">
-                    <h3>Layanan Kami</h3>
-                    <ul>
-                        <li><a href="#">Perbaikan Komputer & Laptop</a></li>
-                        <li><a href="#">Penghapusan Virus & Malware</a></li>
-                        <li><a href="#">Pemulihan Data</a></li>
-                        <li><a href="#">Upgrade Hardware</a></li>
-                        <li><a href="#">Solusi Jaringan</a></li>
+                <div class="footer-col">
+                    <h3>Layanan</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Service Hardware</a></li>
+                        <li><a href="#">Service Software</a></li>
+                        <li><a href="#">Virus Removal</a></li>
+                        <li><a href="#">Data Recovery</a></li>
+                        <li><a href="#">Upgrade Komputer</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h3>Link Cepat</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">Tentang Kami</a></li>
-                        <li><a href="#services">Layanan</a></li>
-                        <li><a href="#products">Produk</a></li>
-                        <li><a href="#promo">Promo</a></li>
-                        <li><a href="#contact">Kontak</a></li>
+                <div class="footer-col">
+                    <h3>Produk</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Laptop HP</a></li>
+                        <li><a href="#">Laptop Acer</a></li>
+                        <li><a href="#">Laptop Lenovo</a></li>
+                        <li><a href="#">Laptop Gaming</a></li>
+                        <li><a href="#">Aksesoris Komputer</a></li>
                     </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Kontak</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Majapahit Stand Pasar Kliwon No. 18, Solo</p>
+                    <p><i class="fas fa-phone-alt"></i> 0813-2871-7886</p>
+                    <p><i class="fas fa-envelope"></i> hi-tech29.store@example.com</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Hi-Tech Computer Service. Semua Hak Dilindungi.</p>
+                <p>&copy; 2023 Hi-Tech29 Store. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/6281328717886" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
     <script>
         // Mobile Menu Toggle
-        document.getElementById('mobileMenu').addEventListener('click', function() {
-            const navMenu = document.getElementById('navMenu');
-            navMenu.classList.toggle('show');
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
 
-        // Smooth Scrolling
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
+                if (targetId === '#') return;
                 
+                const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
-                    
-                    // Close mobile menu if open
-                    if (window.innerWidth <= 768) {
-                        document.getElementById('navMenu').classList.remove('show');
-                    }
                 }
             });
         });
 
-        // Form Submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const message = document.getElementById('message').value;
-            
-            // Here you would typically send the data to a server
-            // For this example, we'll just show an alert
-            alert(`Terima kasih, ${name}! Pesan Anda telah terkirim. Kami akan menghubungi Anda segera via email (${email}) atau telepon (${phone}).`);
-            
-            // Reset form
-            this.reset();
-        });
+        // Testimonials slider
+        let isDragging = false;
+        let startPos = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+        const slider = document.querySelector('.testimonials-slider');
+
+        slider.addEventListener('mousedown', touchStart);
+        slider.addEventListener('touchstart', touchStart);
+        slider.addEventListener('mouseup', touchEnd);
+        slider.addEventListener('touchend', touchEnd);
+        slider.addEventListener('mousemove', touchMove);
+        slider.addEventListener('touchmove', touchMove);
+
+        function touchStart(e) {
+            if (e.type === 'touchstart') {
+                startPos = e.touches[0].clientX;
+            } else {
+                startPos = e.clientX;
+                e.preventDefault();
+            }
+            isDragging = true;
+            slider.style.cursor = 'grabbing';
+            slider.style.scrollBehavior = 'auto';
+        }
+
+        function touchEnd() {
+            isDragging = false;
+            slider.style.cursor = 'grab';
+        }
+
+        function touchMove(e) {
+            if (!isDragging) return;
+            const currentPosition = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+            const diff = currentPosition - startPos;
+            slider.scrollLeft -= diff;
+            startPos = currentPosition;
+        }
 
         // Animation on scroll
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.service-card, .promo-card, .product-card, .testimonial-card');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
                 }
             });
-        }, {
-            threshold: 0.1
+        };
+
+        // Set initial state for animated elements
+        document.querySelectorAll('.service-card, .promo-card, .product-card, .testimonial-card').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'all 0.5s ease';
         });
 
-        fadeElements.forEach(element => {
-            observer.observe(element);
-            element.style.opacity = 0;
-            element.style.transform = 'translateY(20px)';
-            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        });
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
     </script>
 </body>
 </html>
